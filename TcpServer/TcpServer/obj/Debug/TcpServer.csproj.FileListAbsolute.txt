@@ -1,0 +1,11 @@
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.AssemblyReference.cache
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.Form1.resources
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.Properties.Resources.resources
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.GenerateResource.cache
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.CoreCompileInputs.cache
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\bin\Debug\TcpServer.exe.config
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\bin\Debug\TcpServer.exe
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\bin\Debug\TcpServer.pdb
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.exe
+C:\Users\zaynu\source\repos\TcpServer\TcpServer\obj\Debug\TcpServer.pdb
