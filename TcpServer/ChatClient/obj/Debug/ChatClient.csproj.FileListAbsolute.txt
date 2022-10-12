@@ -20,3 +20,14 @@ C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\ChatClient\obj\Debug\ChatClien
 C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
 C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\ChatClient\obj\Debug\ChatClient.exe
 C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\ChatClient\obj\Debug\ChatClient.pdb
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.csproj.AssemblyReference.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.csproj.SuggestedBindingRedirects.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.Form1.resources
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.Properties.Resources.resources
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\zzmin\Source\Repos\Server\TcpServer\ChatClient\obj\Debug\ChatClient.pdb

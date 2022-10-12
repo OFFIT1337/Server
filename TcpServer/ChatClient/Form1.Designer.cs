@@ -39,6 +39,7 @@
             // 
             this.richTextBoxChat.Location = new System.Drawing.Point(12, 12);
             this.richTextBoxChat.Name = "richTextBoxChat";
+            this.richTextBoxChat.ReadOnly = true;
             this.richTextBoxChat.Size = new System.Drawing.Size(628, 307);
             this.richTextBoxChat.TabIndex = 0;
             this.richTextBoxChat.Text = "";
@@ -60,6 +61,11 @@
             this.buttonSend.TabIndex = 2;
             this.buttonSend.Text = "Отправить";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
