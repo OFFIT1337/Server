@@ -9,22 +9,34 @@ using System.Threading.Tasks;
 
 namespace TcpServer
 {
+    /// <summary>
+    /// Сервер
+    /// </summary>
     public class ServerObject
     {
         public static Form1 Form1;
-        static TcpListener tcpListener;
-        List<ClientObject> clients = new List<ClientObject>();
-        ClientObject clientObject = null;
+        private static TcpListener tcpListener;
+        private List<ClientObject> clients = new List<ClientObject>();
+        private ClientObject clientObject;
+        /// <summary>
+        /// Добавление нового подключения
+        /// </summary>
+        /// <param name="clientObject">Новый подключаемый объект</param>
         protected internal void AddConnection(ClientObject clientObject)
         {
             clients.Add(clientObject);
         }
+        /// <summary>
+        /// Удаление существующего подключения
+        /// </summary>
+        /// <param name="id">Номер удаляемого подключения</param>
         protected internal void RemoveConnection(string id)
         {
-            ClientObject client = clients.FirstOrDefault(c => c.Id == id);
-            if (client != null)
-                clients.Remove(client);
+            clients.Remove(clients?.FirstOrDefault(c => c.Id == id));
         }
+        /// <summary>
+        /// "Прослушивание" новых подключений
+        /// </summary>
         protected internal void Listen()
         {
             try
@@ -46,17 +58,25 @@ namespace TcpServer
                 Disconnect();
             }
         }
+        /// <summary>
+        /// Отправка поступающего сообщения всем подключенным клиентам
+        /// </summary>
+        /// <param name="message">Сообщение</param>
+        /// <param name="id">Номер клиента</param>
         protected internal void BroadcastMessage(string message, string id)
         {
             byte[] data = Encoding.Unicode.GetBytes(message);
             for (int i = 0; i < clients.Count; i++)
             {
-                if (clients[i].Id == id)
+                if (clients[i].Id != id)
                 {
                     clients[i].Stream.Write(data, 0, data.Length);
                 }
             }
         }
+        /// <summary>
+        /// Отключение клиента от сервера
+        /// </summary>
         protected internal void Disconnect()
         {
             tcpListener.Stop();

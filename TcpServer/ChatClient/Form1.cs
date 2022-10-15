@@ -57,16 +57,16 @@ namespace ChatClient
             {
                 try
                 {
-                    byte[] data = new byte [64];
-                    StringBuilder builder = new StringBuilder();
                     int bytes = 0;
+                    byte[] data = new byte [6297630];
+                    StringBuilder builder = new StringBuilder();
                     do
                     {
-                        bytes = stream.Read (data, 0, data.Length);
+                        bytes = stream.Read(data, 0, data.Length);
                         builder.Append (Encoding.Unicode.GetString (data, 0, bytes));
                     }
                     while (stream.DataAvailable);
-                    message = builder.ToString ();
+                    message = builder.ToString();
                     richTextBoxChat.Invoke(new Action(() => richTextBoxChat.Text += message + '\n'));
                 }
                 catch

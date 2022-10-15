@@ -13,9 +13,9 @@ namespace TcpServer
         public static Form1 Form1;
         protected internal string Id { get; private set; }
         protected internal NetworkStream Stream { get; private set; }
-        string userName;
-        TcpClient client;
-        ServerObject server;
+        private string userName;
+        private TcpClient client;
+        private ServerObject server;
         public ClientObject(TcpClient tcpClient, ServerObject serverObject)
         {
             Id = Guid.NewGuid().ToString();
@@ -63,7 +63,7 @@ namespace TcpServer
         }
         private string GetMessage()
         {
-            byte[] data = new byte[64];
+            byte[] data = new byte[6297630];
             StringBuilder builder = new StringBuilder();
             int bytes = 0;
             do

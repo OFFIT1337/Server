@@ -20,3 +20,14 @@ C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\TcpServer\obj\Debug\TcpServer.
 C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.CoreCompileInputs.cache
 C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\TcpServer\obj\Debug\TcpServer.exe
 C:\Users\zzmin\Source\Repos\Diplom_Adel\TcpServer\TcpServer\obj\Debug\TcpServer.pdb
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\bin\Debug\TcpServer.exe.config
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\bin\Debug\TcpServer.exe
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\bin\Debug\TcpServer.pdb
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.AssemblyReference.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.Form1.resources
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.Properties.Resources.resources
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.GenerateResource.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.csproj.CoreCompileInputs.cache
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.exe
+C:\Users\zzmin\Source\Repos\Server\TcpServer\TcpServer\obj\Debug\TcpServer.pdb
