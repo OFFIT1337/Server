@@ -35,10 +35,5 @@ namespace TcpServer
                 richTextBoxChat.Text = ex.Message + "\n";
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

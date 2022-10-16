@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static TcpServer.Form1;
 
 namespace TcpServer
@@ -13,9 +14,9 @@ namespace TcpServer
         public static Form1 Form1;
         protected internal string Id { get; private set; }
         protected internal NetworkStream Stream { get; private set; }
-        private string userName;
-        private TcpClient client;
-        private ServerObject server;
+        private string UserName { get; set; }
+        private readonly TcpClient client;
+        private readonly ServerObject server;
         public ClientObject(TcpClient tcpClient, ServerObject serverObject)
         {
             Id = Guid.NewGuid().ToString();
@@ -29,8 +30,8 @@ namespace TcpServer
             {
                 Stream = client.GetStream();
                 string message = GetMessage();
-                userName = message;
-                message = userName + " вошел в чат";
+                UserName = message;
+                message = UserName + " вошел в чат";
                 server.BroadcastMessage(message, this.Id);
                 Form1.richTextBoxChat.Invoke(new Action(() => Form1.richTextBoxChat.Text += message + '\n'));
                 while (true)
@@ -38,13 +39,15 @@ namespace TcpServer
                     try
                     {
                         message = GetMessage();
-                        message = String.Format("{0}: {1}", userName, message);
+                        if (message == "")
+                            throw new Exception();
+                        message = String.Format("{0}: {1}", UserName, message);
                         Form1.richTextBoxChat.Invoke(new Action(() => Form1.richTextBoxChat.Text += message + '\n'));
                         server.BroadcastMessage(message, this.Id);
                     }
                     catch
                     {
-                        message = String.Format("{0}: покинул чат", userName);
+                        message = String.Format("{0}: покинул чат", UserName);
                         Form1.richTextBoxChat.Invoke(new Action(() => Form1.richTextBoxChat.Text += message + '\n'));
                         server.BroadcastMessage(message, this.Id);
                         break;
