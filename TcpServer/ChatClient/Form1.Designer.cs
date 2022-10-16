@@ -64,11 +64,11 @@
             this.buttonSend.TabIndex = 2;
             this.buttonSend.Text = "Отправить";
             this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSend.Click += new System.EventHandler(this.Button1_Click);
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // richTextBoxIPServer
             // 
@@ -87,7 +87,7 @@
             this.buttonConnect.TabIndex = 4;
             this.buttonConnect.Text = "Подключиться";
             this.buttonConnect.UseVisualStyleBackColor = true;
-            this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
+            this.buttonConnect.Click += new System.EventHandler(this.ButtonConnect_Click);
             // 
             // Form1
             // 

@@ -21,12 +21,14 @@ namespace ChatClient
         private string clientName = "";
         static TcpClient client;
         static NetworkStream stream;
-        bool flag = true; // что это
+        bool flag = true;
+        private Thread ReceiveThread { get; set; }
         public Form1()
         {
             InitializeComponent();
+            richTextBoxIPServer.Text = "127.0.0.1";
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (flag)
             {
@@ -39,8 +41,8 @@ namespace ChatClient
                 this.message = richTextBoxMessage.Text;
                 timer1.Enabled = true;
                 richTextBoxChat.Text += this.clientName + ':' + this.message + '\n';
-
             }
+            richTextBoxMessage.Text = "";
         }
         void SendMessage(string message)
         {
@@ -69,6 +71,7 @@ namespace ChatClient
                 {
                     richTextBoxChat.Invoke(new Action(() => richTextBoxChat.Text += "Подключение прервано!" + "\n"));
                     Disconnect();
+                    break;
                 }
             }
         }
@@ -80,13 +83,13 @@ namespace ChatClient
                 client.Close();
             //Environment.Exit(0);
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             if (flag)
             {
                 stream = client.GetStream();
-                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
-                receiveThread.Start();
+                ReceiveThread = new Thread(new ThreadStart(ReceiveMessage));
+                ReceiveThread.Start();
                 SendMessage(message);
                 richTextBoxChat.Text += "Добро пожаловать, " + message + "\n";
                 flag = false;
@@ -95,12 +98,12 @@ namespace ChatClient
             else
             {
                 stream = client.GetStream();
-                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
+                ReceiveThread = new Thread(new ThreadStart(ReceiveMessage));
                 SendMessage(message);
                 timer1.Enabled = false;
             }
         }
-        private void buttonConnect_Click(object sender, EventArgs e)
+        private void ButtonConnect_Click(object sender, EventArgs e)
         {
             if (buttonConnect.Text == "Подключиться")
             {
@@ -116,6 +119,9 @@ namespace ChatClient
                 Disconnect();
                 buttonConnect.Text = "Подключиться";
                 richTextBoxIPServer.Enabled = true;
+                timer1.Enabled = false;
+                ReceiveThread.Abort();
+                flag = true;
             }
         }
     }
