@@ -84,7 +84,7 @@ namespace TcpServer
             {
                 clients[i].Close();
             }
-            Environment.Exit(0);
+            //Environment.Exit(0);
         }
     }
 }

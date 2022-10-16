@@ -17,7 +17,6 @@ namespace ChatClient
     public partial class Form1 : Form
     {
         string message = "";
-        private const string host = "127.0.0.1";
         private const int port = 8888;
         private string clientName = "";
         static TcpClient client;
@@ -26,9 +25,6 @@ namespace ChatClient
         public Form1()
         {
             InitializeComponent();
-            client = new TcpClient();
-            client.Connect(host, port);
-            richTextBoxChat.Text += "Введите свое имя: " + '\n';
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -48,7 +44,7 @@ namespace ChatClient
         }
         void SendMessage(string message)
         {
-            byte [] data = Encoding.Unicode.GetBytes(message);
+            byte[] data = Encoding.Unicode.GetBytes(message);
             stream.Write(data, 0, data.Length);
         }
         void ReceiveMessage()
@@ -58,12 +54,12 @@ namespace ChatClient
                 try
                 {
                     int bytes = 0;
-                    byte[] data = new byte [6297630];
+                    byte[] data = new byte[6297630];
                     StringBuilder builder = new StringBuilder();
                     do
                     {
                         bytes = stream.Read(data, 0, data.Length);
-                        builder.Append (Encoding.Unicode.GetString (data, 0, bytes));
+                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                     }
                     while (stream.DataAvailable);
                     message = builder.ToString();
@@ -76,45 +72,51 @@ namespace ChatClient
                 }
             }
         }
-        static void Disconnect ()
+        static void Disconnect()
         {
             if (stream != null)
                 stream.Close();
             if (client != null)
                 client.Close();
-            Environment.Exit (0);
+            //Environment.Exit(0);
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            try
+            if (flag)
             {
-                if (flag)
-                {
-                    stream = client.GetStream();
-                    Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
-                    receiveThread.Start();
-                    SendMessage(message);
-                    richTextBoxChat.Text += "Добро пожаловать, " + message + "\n";
-                    flag = false;
-                    timer1.Enabled = false;
-                }
-                else
-                {
-                    stream = client.GetStream();
-                    Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
-                    SendMessage(message); 
-                    timer1.Enabled=false;
-                }
+                stream = client.GetStream();
+                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
+                receiveThread.Start();
+                SendMessage(message);
+                richTextBoxChat.Text += "Добро пожаловать, " + message + "\n";
+                flag = false;
+                timer1.Enabled = false;
             }
-            catch (Exception)
+            else
             {
-
+                stream = client.GetStream();
+                Thread receiveThread = new Thread(new ThreadStart(ReceiveMessage));
+                SendMessage(message);
+                timer1.Enabled = false;
             }
-        } 
-
-        private void Form1_Load(object sender, EventArgs e)
+        }
+        private void buttonConnect_Click(object sender, EventArgs e)
         {
-
+            if (buttonConnect.Text == "Подключиться")
+            {
+                richTextBoxMessage.Enabled = true;
+                client = new TcpClient();
+                client.Connect(richTextBoxIPServer.Text, port);
+                richTextBoxChat.Text += "Введите свое имя: " + '\n';
+                richTextBoxIPServer.Enabled = false;
+                buttonConnect.Text = "Отключиться";
+            }
+            else if(buttonConnect.Text == "Отключиться")
+            {
+                Disconnect();
+                buttonConnect.Text = "Подключиться";
+                richTextBoxIPServer.Enabled = true;
+            }
         }
     }
 }
